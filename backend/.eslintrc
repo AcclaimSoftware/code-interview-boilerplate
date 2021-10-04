@@ -1,0 +1,13 @@
+{
+  "extends": "airbnb-base",
+  "env": {
+    "es6": true,
+    "browser": true,
+    "jest": true
+  },
+  "rules": {
+    "no-console": ["off"],
+    "func-names": ["off"],
+    "quotes": [2, "double", "avoid-escape"]
+  }
+}

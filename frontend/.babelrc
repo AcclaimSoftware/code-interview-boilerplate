@@ -1,0 +1,21 @@
+{
+  "presets": [
+    "@babel/react",
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "chrome": "68"
+        }
+      }
+    ]
+  ],
+  "plugins": [
+    ["@babel/plugin-syntax-dynamic-import"],
+    ["@babel/plugin-proposal-decorators", { "legacy": true }],
+    ["@babel/plugin-proposal-optional-chaining"],
+    ["babel-plugin-styled-components"],
+    ["@babel/plugin-proposal-class-properties"],
+    ["@babel/plugin-transform-classes"]
+  ]
+}

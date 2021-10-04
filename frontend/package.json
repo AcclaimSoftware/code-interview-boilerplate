@@ -1,0 +1,87 @@
+{
+  "name": "Code-Interview-Acclaim",
+  "version": "0.0.1",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "lint-staged": "lint-staged",
+    "start": "webpack-dev-server --mode=development --hot",
+    "start:local": "webpack-dev-server --mode=development --hot --env.NODE_ENV=local",
+    "build": "echo '=> building' && rm -Rf dist/* && webpack --mode=production --env.production --progress --env.NODE_ENV=production",
+    "build:develop": "echo '=> building' && rm -Rf dist/* && webpack --mode=production --env.production --progress --env.NODE_ENV=development",
+    "lint": "npm run lint:js lint:css",
+    "lint:js": "echo '=> linting js' && eslint src",
+    "lint:css": "stylelint './src/**/*.scss'",
+    "test:unit": "jest src",
+    "test:watch": "npm test:unit --watch",
+    "test:coverage": "npm test:unit --coverage"
+  },
+  "lint-staged": {
+    "*.js": "eslint",
+    "*.scss": "stylelint"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.2.3",
+    "@babel/plugin-proposal-decorators": "^7.2.3",
+    "@babel/plugin-proposal-optional-chaining": "^7.2.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.4",
+    "babel-plugin-styled-components": "^1.10.6",
+    "css-loader": "^2.1.0",
+    "eslint": "^5.11.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-import-resolver-webpack": "^0.11.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.12.1",
+    "file-loader": "^4.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "husky": "^3.0.7",
+    "jest": "^24.8.0",
+    "lint-staged": "^9.4.0",
+    "node-sass": "^4.12.0",
+    "pre-commit": "^1.2.2",
+    "react-svg-loader": "^3.0.3",
+    "resolve-url-loader": "^3.1.0",
+    "sass-loader": "^7.1.0",
+    "sass-resources-loader": "^2.0.1",
+    "style-loader": "^1.0.0",
+    "stylelint": "^10.1.0",
+    "stylelint-config-standard": "^18.3.0",
+    "terser-webpack-plugin": "^1.4.1",
+    "url-loader": "^2.1.0",
+    "webpack": "^4.28.3",
+    "webpack-cli": "^3.0.8",
+    "webpack-dev-server": "^3.1.14"
+  },
+  "dependencies": {
+    "@babel/plugin-transform-classes": "^7.5.5",
+    "path-browserify": "^0.0.1",
+    "prop-types": "^15.6.2",
+    "react": "^16.7.0",
+    "react-css-modules": "^4.7.11",
+    "react-dom": "^16.7.0",
+    "resize-observer-polyfill": "^1.5.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint-staged",
+      "pre-push": "npm run test:unit"
+    }
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css|scss)$": "identity-obj-proxy",
+      "react-cssmodules": "<rootDir>/src/helpers/reactCssModules.js"
+    },
+    "testPathIgnorePatterns": [
+      "/(node_modules)/"
+    ]
+  }
+}
